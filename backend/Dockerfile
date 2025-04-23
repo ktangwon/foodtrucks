@@ -1,5 +1,5 @@
 # start from base
-FROM python:3.9
+FROM python:3.11
 
 # copy our application code
 ADD . /app

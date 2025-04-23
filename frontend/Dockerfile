@@ -1,4 +1,4 @@
-FROM node:16 as builder
+FROM node:16 AS builder
 ## Stage 1: Build the frontend
 
 CMD mkdir /app
@@ -21,12 +21,10 @@ RUN npm run build
 
 ## Second stage, use nginx to serve files that have been built
 ## alpine is a small footprint linux image
-FROM nginx:1.21-alpine   
+FROM nginx:1.27
 COPY --from=builder /app/static/index.html /usr/share/nginx/html/
 COPY --from=builder /app/static/build/* /usr/share/nginx/html/
 COPY --from=builder /app/static/icons /usr/share/nginx/html/icons
 COPY --from=builder /app/static/styles /usr/share/nginx/html/styles
 
 COPY default.conf /etc/nginx/default.conf
-
-USER nginx

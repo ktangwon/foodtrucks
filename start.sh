@@ -17,4 +17,4 @@ docker run -d --net foodtrucks-net --name foodtrucks-frontend ft-frontend
 docker run -d --net foodtrucks-net --publish 8080:80 \
     -v ${SCRIPT_PATH}/proxy/default.conf:/etc/nginx/conf.d/default.conf \
     --name foodtrucks-proxy \
-    nginx:1.21
+    nginx:1.27
