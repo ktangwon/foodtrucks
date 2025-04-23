@@ -27,3 +27,6 @@ COPY --from=builder /app/static/build/* /usr/share/nginx/html/
 COPY --from=builder /app/static/icons /usr/share/nginx/html/icons
 COPY --from=builder /app/static/styles /usr/share/nginx/html/styles
 
+COPY default.conf /etc/nginx/default.conf
+
+USER nginx
